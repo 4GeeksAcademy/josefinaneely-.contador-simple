@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import SecondsCounter from "./SecondsCounter.jsx";
 
 
-//include images into your bundle
-
-import SimpleCounter from "./SimpleCounter";
-import './index.css';
-
-//create your first component
 const Home = () => {
+
+	const [segundos, setSegundos] = useState(0)
+
+
+	setInterval(() => {
+		setSegundos(segundos + 1)
+	}, 1000);
 
 
 	return (
-		<div>
+		<div className="text-center">
 
-			<h1>Contador Simple</h1>
-			<SimpleCounter />
+			<SecondsCounter segundos={segundos}></SecondsCounter>
+			<i class="fa-solid fa-watch"></i>
+			<p className="footing">
 
+
+			</p>
 		</div>
-
 	);
 };
 
 export default Home;
-ReactDOM.render(<Home />, document.querySelector('#app'))
